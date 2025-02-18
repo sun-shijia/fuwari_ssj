@@ -4,6 +4,19 @@
     .card-base {
         @apply rounded-[var(--radius-large)] overflow-hidden bg-[var(--card-bg)] transition;
     }
+    .card-base .text-neutral-400 {
+        font-size: 0.875rem;
+        color: #788888;
+      }    
+    .card-base .font-bold {
+    font-weight: bold;
+    }
+    .card-base .text-center {
+    text-align: center;
+    }
+    .card-base .mt-1 {
+    margin-top: 0.25rem;
+      }
     h1, h2, h3, h4, h5, h6, p, a, span, li, ul, ol, blockquote, code, pre, table, th, td, strong {
         @apply transition;
     }
