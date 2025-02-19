@@ -1,6 +1,6 @@
 ---
 title: 分子胶发现
-published: 2025-2-19
+published: 2025-02-19
 description: 利用结构和计算生物学方法助力分子胶的发现
 tags: [综述]
 category: Papers
