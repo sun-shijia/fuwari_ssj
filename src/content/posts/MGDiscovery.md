@@ -9,7 +9,7 @@ draft: false
 
 # 引言
 
-**分子胶（Molecular Glue）**和**蛋白水解靶向嵌合体（PROTAC）**是近些年引领药物发现范式转变的新型治疗分子，
+**分子胶（Molecular Glue）** 和 **蛋白水解靶向嵌合体（PROTAC）**是近些年引领药物发现范式转变的新型治疗分子，
 传统小分子通常通过阻断正构位点或变构位点来抑制靶蛋白功能发挥药效，而分子胶则通过促进E3连接酶与其底物蛋白之间的相互作用，
 从而诱导靶蛋白降解，将某些曾经被广泛认知为“不可成药”的蛋白转化为“可成药”蛋白
 
@@ -17,10 +17,10 @@ draft: false
 
 # 方法
 
-**传统方法**主要是筛选小分子化合物库，观察其是否能够在细胞实验中通过蛋白酶体依赖性途径诱导目标蛋白降解，
+传统方法主要是筛选小分子化合物库，观察其是否能够在细胞实验中通过蛋白酶体依赖性途径诱导目标蛋白降解，
 随后进行机制验证，以确认所涉及的E3连接酶和蛋白底物，带有一定偶然性，如`沙利度胺（thalidomide）`。
 
-**目前方法**在传统方法的基础上，引入了冷冻电子显微镜（Cryo-EM），X射线晶体学（X-ray crystallography），
+目前方法在传统方法的基础上，引入了冷冻电子显微镜（Cryo-EM），X射线晶体学（X-ray crystallography），
 基于结构的药物设计（structure-based drug design），计算建模（computational modeling）以及人工智能辅助药物设计（AIDD）
 的方法，预计这些方法将在未来加速新型分子胶的发现，并拓展其在多种疾病中的治疗潜力。
 
@@ -54,15 +54,15 @@ draft: false
 
 ## 关键点
 
-:::1
+:::note[1]
 蛋白-蛋白相互作用（PPI）
 :::
 
-:::2
+:::note[2]
 动力学和热力学特性
 :::
 
-:::3
+:::note[3]
 优化筛选方法
 :::
 
@@ -104,4 +104,4 @@ draft: false
 
 # 参考文献
 
-[ Leveraging Structural and Computational Biology for Molecular Glue Discovery](https://pubs.acs.org/doi/10.1021/acs.jmedchem.5c00076?ref=pdf)
+[ Leveraging Structural and Computational Biology for Molecular Glue Discovery, DOI: 10.1021/acs.jmedchem.5c00076, 2025-01](https://pubs.acs.org/doi/10.1021/acs.jmedchem.5c00076?ref=pdf)
