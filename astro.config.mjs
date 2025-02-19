@@ -20,13 +20,13 @@ import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 
 import vercel from "@astrojs/vercel";
+import { content } from "@astro/content";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://matchstick.vercel.app/",
   base: "/",
   trailingSlash: "always",
-  output: 'server',
   integrations: [
     tailwind(
         {
@@ -135,5 +135,4 @@ export default defineConfig({
     },
   },
 
-  adapter: vercel(),
 });
