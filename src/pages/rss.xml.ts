@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: siteConfig.title,
     description: siteConfig.subtitle || 'No description',
-    site: context.site ?? 'https://matchstick.vercel.app',
+    site: context.site ?? 'https://fuwari-ssj.vercel.app',
     items: blog.map(post => {
       const bodyContent = typeof post.body === 'string' ? post.body : '';
 
