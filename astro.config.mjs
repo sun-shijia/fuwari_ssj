@@ -26,8 +26,6 @@ export default defineConfig({
   site: "https://matchstick.vercel.app/",
   base: "/",
   trailingSlash: "always",
-  output: 'server',
-  adapter: vercel(),
   integrations: [
     tailwind(
         {
