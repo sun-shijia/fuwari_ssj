@@ -1,6 +1,6 @@
 ---
 title: 排序算法
-published: 2025-2-21
+published: 2025-02-21
 description: 各种类型的排序算法(python)
 tags: [Blogging]
 category: Code
