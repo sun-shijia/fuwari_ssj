@@ -1,7 +1,7 @@
 # About
 This is a project from [Fuwari](https://github.com/saicaca/fuwari).
 
-::github{repo="sun-shijia/fuwari-ssj"}
+::github{repo="sun-shijia/fuwari_ssj"}
 
 > ### Sources of images used in this site
 > - [Unsplash](https://unsplash.com/)
