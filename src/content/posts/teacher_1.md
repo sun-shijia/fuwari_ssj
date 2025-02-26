@@ -1,9 +1,9 @@
 ---
-title: 分子胶发现
+title: 曾湘祥老师_湖南大学
 published: 2025-02-26
 description: 曾湘祥老师_湖南大学
 tags: [其他]
-category: Papers
+category: Teachers
 draft: false
 ---
 
