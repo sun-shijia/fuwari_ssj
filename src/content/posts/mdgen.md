@@ -131,8 +131,8 @@ $$
 其中每个分子结构 $$ X_i \in \mathbb{R}^{3N} $$ 代表某个轨迹长度 $$ T $$ 内的状态。
 
 在本研究中，我们专注于：
-- **短肽（short peptides）**的 MD 轨迹。
-- **单链蛋白（single-chain proteins）**的 MD 轨迹。
+- 短肽（short peptides）的 MD 轨迹。
+- 单链蛋白（single-chain proteins）的 MD 轨迹。
 
 因此，我们的化学描述采用 **氨基酸序列** 表示：  
 $$
