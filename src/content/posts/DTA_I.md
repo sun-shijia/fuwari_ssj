@@ -11,26 +11,26 @@ draft: false
 
 ## 1
 :::note[DeepDTA, 2018](https://doi.org/10.1093/bioinformatics/bty593)
->**Dataset**  
->Davis, KIBA
->
->**Model**  
->使用卷积神经网络（CNNs）编码小分子 SMILES 和蛋白 Sequence，然后 Maxpooling，FC
->
->**Metrics**  
->Concordance Index ($$CI$$)：衡量两个随机药物-靶点对的预测结合亲和力值是否按照与真实值相同的顺序进行预测  
->Mean Squared Error ($$MSE$$): 衡量预测值与真实值之间的均方根误差  
->Area Under Precision Recall ($$AUPR$$): 适用于二分类任务(将 Davis, KIBA 的 label 值分别确定一个阈值进而将数据集修改成二元数据集)  
->&&r_m^2&&：评估QSAR模型的外部预测性能，>0.5 为可接受
->
->**Baseline**  
->[KronRLS](https://doi.org/10.1093/bib/bbu010)  
->[SimBoost](https://doi.org/10.1186/s13321-017-0209-z)
->
->**innovate**  
->将二元分类任务转化为回归任务  
->采用 CNN 架构编码 1D 序列信息
->
+   >**Dataset**  
+   >Davis, KIBA
+   >
+   >**Model**  
+   >使用卷积神经网络（CNNs）编码小分子 SMILES 和蛋白 Sequence，然后 Maxpooling，FC
+   >
+   >**Metrics**  
+   >Concordance Index ($$CI$$)：衡量两个随机药物-靶点对的预测结合亲和力值是否按照与真实值相同的顺序进行预测  
+   >Mean Squared Error ($$MSE$$): 衡量预测值与真实值之间的均方根误差  
+   >Area Under Precision Recall ($$AUPR$$): 适用于二分类任务(将 Davis, KIBA 的 label 值分别确定一个阈值进而将数据集修改成二元数据集)  
+   >&&r_m^2&&：评估QSAR模型的外部预测性能，>0.5 为可接受
+   >
+   >**Baseline**  
+   >[KronRLS](https://doi.org/10.1093/bib/bbu010)  
+   >[SimBoost](https://doi.org/10.1186/s13321-017-0209-z)
+   >
+   >**innovate**  
+   >将二元分类任务转化为回归任务  
+   >采用 CNN 架构编码 1D 序列信息
+   >
 :::
 
 ## 2
@@ -53,41 +53,39 @@ draft: false
 >**innovate**  
 >应用 GNN 用于回归任务
 >对 GNN 输出的 128 latent variable 进行了可解释性分析，发现脂肪族OH基团的数量影响最大，有两个潜在变量与其较相关, 但其他的还比较难解释
->
 :::
 
 ## 3
 :::note[FusionDTA, 2021](https://doi.org/10.1093/bib/bbab506)
->**Dataset**  
->Davis, KIBA
->
->**Model**  
->药物分子通过一个SMILES格式的词汇表，编码成 one-hot 再投影到一个低维的离散空间（维度由 embedding 层决定） 
->蛋白表示采用了预训练 transformer (ESM-1b) 的 encoder，输入 embedding 是 token embedding 和 position embedding 的和，以 [CLS] 开始，[SEP] 结束  
->采用预训练 + 微调结合模式，预训练任务是完形填空，预测蛋白序列的 masked token，微调任务是用预训练好的 encoder 编码然后进行下游 DTA 预测任务，编码结束后分别将药物分子和蛋白分子输入一个 Feedforward & Activation 然后再进入两层的 BiLSTM，目的是为了捕获 embedding 的长程依赖和短程依赖，然后通过一个多头线性注意力机制，concact 然后作回归输出
->对 DTA 任务做知识蒸馏
->
->**Metrics**  
->$$CI$$  
->$$MSE$$  
->&&r_m^2&&
->
->**Baseline**  
->[KronRLS](https://doi.org/10.1093/bib/bbu010)  
->[SimBoost](https://doi.org/10.1186/s13321-017-0209-z)  
->[DeepDTA](https://doi.org/10.1093/bioinformatics/bty593)  
->[WideDTA](https://doi.org/10.48550/arXiv.1902.04166)  
->[MT-DTI](https://doi.org/10.48550/arXiv.1908.06760)  
->[DeepCDA](https://doi.org/10.1093/bioinformatics/btaa544)  
->[MATT_DTI](https://doi.org/10.1093/bib/bbab117)  
->[GraphDTA](https://doi.org/10.1093/bioinformatics/btaa921)  
->[GEFA](https://doi.org/10.1109/TCBB.2021.3094217)
->
->**innovate**  
->采用了预训练 + 微调形式  
->采用 token 表示蛋白  
->采用知识蒸馏方法
->
+**Dataset**  
+Davis, KIBA
+
+**Model**  
+药物分子通过一个SMILES格式的词汇表，编码成 one-hot 再投影到一个低维的离散空间（维度由 embedding 层决定） 
+蛋白表示采用了预训练 transformer (ESM-1b) 的 encoder，输入 embedding 是 token embedding 和 position embedding 的和，以 [CLS] 开始，[SEP] 结束  
+采用预训练 + 微调结合模式，预训练任务是完形填空，预测蛋白序列的 masked token，微调任务是用预训练好的 encoder 编码然后进行下游 DTA 预测任务，编码结束后分别将药物分子和蛋白分子输入一个 Feedforward & Activation 然后再进入两层的 BiLSTM，目的是为了捕获 embedding 的长程依赖和短程依赖，然后通过一个多头线性注意力机制，concact 然后作回归输出
+对 DTA 任务做知识蒸馏
+
+**Metrics**  
+$$CI$$  
+$$MSE$$  
+&&r_m^2&&
+
+**Baseline**  
+[KronRLS](https://doi.org/10.1093/bib/bbu010)  
+[SimBoost](https://doi.org/10.1186/s13321-017-0209-z)  
+[DeepDTA](https://doi.org/10.1093/bioinformatics/bty593)  
+[WideDTA](https://doi.org/10.48550/arXiv.1902.04166)  
+[MT-DTI](https://doi.org/10.48550/arXiv.1908.06760)  
+[DeepCDA](https://doi.org/10.1093/bioinformatics/btaa544)  
+[MATT_DTI](https://doi.org/10.1093/bib/bbab117)  
+[GraphDTA](https://doi.org/10.1093/bioinformatics/btaa921)  
+[GEFA](https://doi.org/10.1109/TCBB.2021.3094217)
+
+**innovate**  
+采用了预训练 + 微调形式  
+采用 token 表示蛋白  
+采用知识蒸馏方法
 :::
 
 ## 4
