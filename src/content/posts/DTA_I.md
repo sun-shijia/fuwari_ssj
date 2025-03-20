@@ -58,9 +58,9 @@ $$MSE$$
 Davis, KIBA
 
 **Model**  
-药物分子通过一个SMILES格式的词汇表，编码成 one-hot 再投影到一个低维的离散空间（维度由 embedding 层决定） 
-蛋白表示采用了预训练 transformer (ESM-1b) 的 encoder，输入 embedding 是 token embedding 和 position embedding 的和，以 [CLS] 开始，[SEP] 结束  
-采用预训练 + 微调结合模式，预训练任务是完形填空，预测蛋白序列的 masked token，微调任务是用预训练好的 encoder 编码然后进行下游 DTA 预测任务，编码结束后分别将药物分子和蛋白分子输入一个 Feedforward & Activation 然后再进入两层的 BiLSTM，目的是为了捕获 embedding 的长程依赖和短程依赖，>然后通过一个多头线性注意力机制，concact 然后作回归输出
+药物分子通过一个SMILES格式的词汇表，编码成 one-hot 再投影到一个低维的离散空间（维度由 embedding 层决定）  
+蛋白表示采用了预训练 transformer (ESM-1b) 的 encoder，输入 embedding 是 token embedding 和 position embedding 的和，以 `[CLS]` 开始，`[SEP]` 结束  
+采用预训练 + 微调结合模式，预训练任务是完形填空，预测蛋白序列的 masked token，微调任务是用预训练好的 encoder 编码然后进行下游 DTA 预测任务，编码结束后分别将药物分子和蛋白分子输入一个 Feedforward & Activation 然后再进入两层的 BiLSTM，目的是为了捕获 embedding 的长程依赖和短程依赖，>然后通过一个多头线性注意力机制，concact 然后作回归输出  
 对 DTA 任务做知识蒸馏
 
 **Metrics**  
@@ -80,25 +80,25 @@ $$r_{m}^{2}$$
 ## [MGraphDTA, 2022](https://doi.org/10.1039/D1SC05180F)
 :::note
 **Dataset**  
-Davis, KIBA，Metz，Human，C.elegans，ToxCast
+Davis，KIBA，Metz，Human，C.elegans，ToxCast
 
 **Model**  
-对于药物分子，构建了一个非常深的 MGNN 网络（包括 Multiscale block 和 Transition layer）提取特征，可以精确的提取子结构特征，将分子官能团等的信息提取到，不像之前的 GNN 可能深度较浅甚至包括不了完整的官能团，大环等，并且为了解决加深 GNN 网络带来的特征过平滑 (over-smoothing) 问题，引入了稠密连接 (dense connections), 整合给定顶点或原子的不同感受野的特征，保持分子不同尺度的子结构。
-对于蛋白分子，采用的 MCNN 是多尺度的卷积网络（单层双层三层 CNN 分别提取后拼接）提取特征，最后将药物分子和蛋白分子特征融合后过 MLP 输出
+对于药物分子，构建了一个非常深的 MGNN 网络（包括 Multiscale block 和 Transition layer）提取特征，可以精确的提取子结构特征，将分子官能团等的信息提取到，不像之前的 GNN 可能深度较浅甚至包括不了完整的官能团，大环等，并且为了解决加深 GNN 网络带来的特征过平滑 (over-smoothing) 问题，引入了稠密连接 (dense connections), 整合给定顶点或原子的不同感受野的特征，保持分子不同尺度的子结构。  
+对于蛋白分子，采用的 MCNN 是多尺度的卷积网络（单层双层三层 CNN 分别提取后拼接）提取特征，最后将药物分子和蛋白分子特征融合后过 MLP 输出  
 还提出了一种简单但有效的可视化方法，称为Grad-AAM，用于研究GNN如何在DTA预测中做出决策。使用了 MGNN 最后一个图卷积层的梯度信息来了解每个神经元对亲和力决策的重要性
 
 **Metrics**  
 $$CI$$  
 $$MSE$$  
-$$r_{m}^{2}$$
-$$Precision	Recall AUC$$ (分类任务)
+$$r_{m}^{2}$$  
+$$Precision	  Recall   AUC$$ (分类任务)  
 $$Spearman$$
 
 **Baseline**   
 [DeepDTA](https://doi.org/10.1093/bioinformatics/bty593)，  [Wide-DTA](https://doi.org/10.48550/arXiv.1902.04166)，  [GraphDTA](https://doi.org/10.1093/bioinformatics/btaa921)，  [DeepAffinity](https://doi.org/10.1021/acs.jcim.0c00866)，  [TrimNet](https://doi.org/10.1093/bib/bbaa266)，  [TransformerCPI](https://doi.org/10.1093/bioinformatics/btaa524)，  [VQA-seq](https://doi.org/10.1038/s42256-020-0152-y)，  [GNN-CNN](https://doi.org/10.1093/bioinformatics/bty535)
 
 **innovate**  
-加深了 GNN 的网络并且从化学层面做出了合理化（引入 dense connections）
+加深了 GNN 的网络并且从化学层面做出了合理化（引入 dense connections）  
 提出了非注意力机制的可解释性方法称为 Grad-AAM，能够较为简便的应用到各种 GNN 模型
 :::
 
