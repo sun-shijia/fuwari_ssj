@@ -91,7 +91,7 @@ Davis，KIBA，Metz，Human，C.elegans，ToxCast
 $$CI$$  
 $$MSE$$  
 $$r_{m}^{2}$$  
-$$Precision	  Recall   AUC$$ (分类任务)  
+$$Precision$$  $$Recall$$  $$AUC$$ (分类任务)  
 $$Spearman$$
 
 **Baseline**   
@@ -114,7 +114,7 @@ $$Spearman$$
 **Metrics**  
 $$CI$$  
 $$MSE$$  
-Spearman's rank correlation($$Sp$$)  
+Spearman's rank correlation ($$Sp$$)  
 $$Pearson$$
 
 **Baseline**  
@@ -145,5 +145,54 @@ $$r_{m}^{2}$$
 **innovate**  
 采用了双向模型（序列和图同时提取信息，最后合并预测）  
 结合了 AlphaFold 的 contact map 加到图结构的信息里
+:::
+
+# DTI 论文整理
+
+## [DeepDTI, 2017](https://doi.org/10.1021/acs.jproteome.6b00618)
+:::note
+**Dataset**  
+DrugBank，EDTPs
+
+**Model**  
+DBN 模型，是 Restricted Boltzmann Machine (RBM) 的堆叠  
+药物分子使用 ECFP 分子指纹表示  
+蛋白分子使用 PSC 序列组成描述符表示
+
+**Metrics**  
+$$AUC$$
+
+**Baseline**   
+Bernoulli Naïve Bayesian (BNB)  
+Decision Tree (DT)  
+Random Forest (RF)
+
+**innovate**  
+开山之作
+:::
+
+## [TransformerCPI, 2020](https://doi.org/10.1093/bioinformatics/btaa524)
+:::note
+**Dataset**  
+Human，C.elegans, BindingDB  
+GPCR, Kinase (constructed)
+
+**Model**  
+蛋白分子采用序列输入，先用一个预训练的 word2vec 对序列进行编码，成为 embedding 之后过一个卷积层和门控线性单元，然后输出的特征再跟药物分子特征融合（注意力机制）  
+药物分子采用 RDKit 的图卷积编码，直接作为 decoder 的输入  
+实际上就是把 transformer 的 encoder 替换掉然后去掉了位置编码的模型
+
+**Metrics**  
+$$log_ratio$$ (用于数据分布表征)  
+$$AUC$$	 
+$$Precision$$  
+$$Recall$$
+
+**Baseline**   
+[GraphDTA](https://doi.org/10.1093/bioinformatics/btaa921)，  [CPI-GNN](https://doi.org/10.1093/bioinformatics/bty535)，  [DrugVQA](https://doi.org/10.1038/s42256-020-0152-y)
+
+**innovate**  
+提出了关于之前数据集中的数据问题，指出模型对于蛋白的考虑不足，对于药物分子的考虑有偏差，更合理的构建了数据集  
+模型采用了 transformer 的 decoder 架构
 :::
 
