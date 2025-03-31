@@ -183,9 +183,9 @@ GPCR, Kinase (constructed)
 实际上就是把 transformer 的 encoder 替换掉然后去掉了位置编码的模型
 
 **Metrics**  
-$$log_ratio$$ (用于数据分布表征)  
-$$AUC$$	 
-$$Precision$$  
+$$logratio$$  (用于数据分布表征)  
+$$AUC$$	  
+$$Precision$$   
 $$Recall$$
 
 **Baseline**   
