@@ -184,10 +184,14 @@ Distogram 是一种表示原子间距离分布的概率图。因为 Pairformer �
 具体流程为
 
 $$
-ŝ_{trunk}, ẑ_{trunk} = Pairformer_{Trunk}(s_{trunk}, z_{trunk}, S_{input})
+ŝ_{trunk}, ẑ_{trunk} = PairformerTrunk(s_{trunk}, z_{trunk}, S_{input})
+$$
 
+$$
 xyz_{atom} = StructureModule(ŝ_{trunk}, ẑ_{trunk}).stopgradient
+$$
 
+$$
 ConfidenceScore = ConfidenceModule(ŝ_{trunk}, ẑ_{trunk}, xyz_{atom}, S_{input})
 $$
 
