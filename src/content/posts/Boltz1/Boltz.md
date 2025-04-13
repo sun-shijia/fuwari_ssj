@@ -184,16 +184,18 @@ Distogram 是一种表示原子间距离分布的概率图。因为 Pairformer �
 具体流程为
 
 $$
-ŝ_trunk, ẑ_trunk = Pairformer_Trunk(s_trunk, z_trunk, S_input)
-xyz_atom = Structure_Module(ŝ_trunk, ẑ_trunk).stop_gradient
-Confidence_score = Confidence_Module(ŝ_trunk, ẑ_trunk, xyz_atom, S_input)
+ŝ_{trunk}, ẑ_{trunk} = Pairformer_{Trunk}(s_{trunk}, z_{trunk}, S_{input})
+
+xyz_{atom} = StructureModule(ŝ_{trunk}, ẑ_{trunk}).stopgradient
+
+ConfidenceScore = ConfidenceModule(ŝ_{trunk}, ẑ_{trunk}, xyz_{atom}, S_{input})
 $$
 
-$$ŝ_trunk$$, $$ẑ_trunk$$：由 Pairformer 输出的特征，允许梯度传播；
+$$ŝ_{trunk}$$, $$ẑ_{trunk}$$：由 Pairformer 输出的特征，允许梯度传播；
 
-$$xyz_atom$$：由结构模块生成的三维坐标，但应用了 `.stop_gradient`，阻断了反向传播，即扩散步骤不参与梯度传播；
+$$xyz_{atom}$$：由结构模块生成的三维坐标，但应用了 `.stop_gradient`，阻断了反向传播，即扩散步骤不参与梯度传播；
 
-Confidence Module：利用这些特征 + $$S_input$$ 生成一个 可信度分数，用作优化目标之一；
+Confidence Module：利用这些特征 + $$S_{input}$$ 生成一个 可信度分数，用作优化目标之一；
 
 最终：损失函数通过 Confidence Module 和 Pairformer 向前传播，但不会进入 Structure Module 或扩散采样部分。
 
