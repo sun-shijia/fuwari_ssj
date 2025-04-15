@@ -102,7 +102,7 @@ draft: false
 
 ### 训练与推理优化
 
-1. Kabsch扩散插值算法：骤中，在噪声结构&&x̂_noisy&&和去噪结构&&x̂_denoised&&插值前增加Kabsch刚性对齐，保证插值结构更接近去噪样本
+1. Kabsch扩散插值算法：骤中，在噪声结构 $$x̂_{noisy}$$ 和去噪结构 $$x̂_{denoised}$$ 插值前增加Kabsch刚性对齐，保证插值结构更接近去噪样本
 
 ![Figure 1](Boltz1_1.png)
 
@@ -172,7 +172,7 @@ Boltz-1——首个实现AlphaFold3级别预测精度且完全开源可商用的
 Distogram 是一种表示原子间距离分布的概率图。因为 Pairformer 生成的距离矩阵(distogram)本质上是原子间距的概率分布表征，扩散模型后续正是基于这一分布进行采样。因此与其优化一个确定的三维结构，不如直接优化这个原子对之间距离的概率分布（distogram），因为这可以更高效地探索序列-结构空间，同时避免了每一步扩散采样都进行反向传播的计算开销。
 
 :::note[基础方法]
-仅使用 Pairformer 通过距离矩阵损失反向传播优化序列，输入序列 $$S_input$$ 被送入 Pairformer 模块，生成单序列表示：$$ŝ_trunk$$ 和原子对表示：$$ẑ_trunk$$，使用这些表示计算 distogram loss。反向传播仅通过 Pairformer，将损失传播到输入序列 S_input，以优化序列本身。
+仅使用 Pairformer 通过距离矩阵损失反向传播优化序列，输入序列 $$S_{input}$$ 被送入 Pairformer 模块，生成单序列表示：$$ŝ_{trunk}$$ 和原子对表示：$$ẑ_{trunk}$$，使用这些表示计算 distogram loss。反向传播仅通过 Pairformer，将损失传播到输入序列 $$S_{input}$$，以优化序列本身。
 :::
 
 ![Figure 5](BoltzDesign1_1.png)
