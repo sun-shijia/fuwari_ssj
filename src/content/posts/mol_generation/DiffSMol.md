@@ -40,13 +40,15 @@ draft: false
   $$
   o_q^{\text{gt}} = \text{MLP}\left(\left[\langle z_q, H_s \rangle,\ \|z_q\|_2,\ \text{VN-In}(H_s)\right]\right)
   $$
-    - $$\langle z_q, H_s \rangle$$：点与表面嵌入之间的点积交互（等变性保证）。
-    - $$\|z_q\|_2$$：查询点的模长（与旋转无关）。
-    - $$\text{VN-In}(H_s)$$：将等变嵌入 $$H_s \in \mathbb{R}^{3 \times d_p}$$ 转换为不变嵌入（$$\in \mathbb{R}^{d_p}$$）的模块，由 VN 构造。
 
-    - $$o_q^{\text{gt}}$$：预测的 signed distance：
-    - $$> 0$$：表示 $$z_q$$ 在分子表面之外。
-    - $$< 0$$：表示 $$z_q$$ 在分子表面之内。
+  $$z_q, H_s$$：点与表面嵌入之间的点积交互（等变性保证）。
+  $$\|z_q\|_2$$：查询点的模长（与旋转无关）。
+  $$\text{VN-In}(H_s)$$：将等变嵌入 $$H_s \in \mathbb{R}^{3 \times d_p}$$ 转换为不变嵌入（$$\in \mathbb{R}^{d_p}$$）的模块，由 VN 构造。
+
+  $$o_q^{\text{gt}}$$：预测的 signed distance：
+  $$> 0$$：表示 $$z_q$$ 在分子表面之外。
+  $$< 0$$：表示 $$z_q$$ 在分子表面之内。
+
 4. SE pretraining
   - 使用均方误差回归预测 signed distance：
     $$
