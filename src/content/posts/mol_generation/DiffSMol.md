@@ -35,8 +35,7 @@ draft: false
     $$
     H_s = \frac{1}{|\mathcal{P}|} \sum_{j=1}^{|\mathcal{P}|} H_j^p \in \mathbb{R}^{3 \times d_p}
     $$
-3. SE-dec
-  - 
+3. SE-dec 
   $$
   o_q^{\text{gt}} = \text{MLP}\left(\left[\langle z_q, H_s \rangle,\ \|z_q\|_2,\ \text{VN-In}(H_s)\right]\right)
   $$
