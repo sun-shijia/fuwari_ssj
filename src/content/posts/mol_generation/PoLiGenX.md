@@ -15,11 +15,11 @@ draft: false
 
 # 模型
 
-![Figure 1](PoLiGenX_1.png)
+![Figure 1](ProLiGenX_1.png)
 
-本文旨在构建一个 条件生成模型 $p_θ(M | P)$，能够在已知蛋白质口袋 $P$ 的条件下生成合理的小分子结构 $M$，即 de novo 分子生成。该方法在 EQGAT-diff 模型的基础上进行扩展。输入的小分子还是原子坐标，原子类型和键类型，同样的坐标采用高斯分布，类型采用分类分布，不同的是，为了在生成过程中考虑性质和分子相似性的信息，引入了一个潜变量 $z$ :
+本文旨在构建一个 条件生成模型 p_θ(M | P)，能够在已知蛋白质口袋 $P$ 的条件下生成合理的小分子结构 M，即 de novo 分子生成。该方法在 EQGAT-diff 模型的基础上进行扩展。输入的小分子还是原子坐标，原子类型和键类型，同样的坐标采用高斯分布，类型采用分类分布，不同的是，为了在生成过程中考虑性质和分子相似性的信息，引入了一个潜变量 $z$ :
 
-- 由图神经网络编码器 $q_φ(z|M0)$ 得到
+- 由图神经网络编码器 q_φ(z|M0) 得到
 
 - $z$ 表示形状和组成信息
 
@@ -29,9 +29,9 @@ draft: false
 
 ## 训练细节
 
-1. 每个 batch 中仅选取一个扩散时间步 $t ∈ {1, ..., 500}$ 来训练，提升效率
+1. 每个 batch 中仅选取一个扩散时间步 t ∈ {1, ..., 500} 来训练，提升效率
 
-2. 潜变量 $z$ 的先验分布为标准正态分布 $p(z) ~ N(0, I)$
+2. 潜变量 $z$ 的先验分布为标准正态分布 p(z) ~ N(0, I)
 
 3. 为保持 $z$ 空间的平滑性，使用 最大均值差异（MMD）损失 代替传统 KL 散度
 
@@ -41,7 +41,7 @@ draft: false
 
 编码器基于 EQGAT（Equivariant Graph Attention Network）, 然后经过 message passing，Gated Equivariant Transformation + SoftmaxAttention-Pooling 得到 $z$ 进入到扩散
 
-![Figure 2](PoLiGenX_2.png)
+![Figure 2](ProLiGenX_2.png)
 
 每层 message passing 后，将潜变量 z 融入节点表示：使用 自适应层归一化（Adaptive LayerNorm，AL） 技术，类似风格迁移中的 Adaptive Instance Normalization（AdaIN）
 
@@ -71,19 +71,19 @@ $w_s(t)$ 是根据时间步 $t$ 动态调节的信噪比权重（参考 Le 等�
 
 # 结果
 
-![Figure 3](PoLiGenX_3.png)
+![Figure 3](ProLiGenX_3.png)
 
-![Figure 4](PoLiGenX_4.png)
+![Figure 4](ProLiGenX_4.png)
 
-![Figure 5](PoLiGenX_5.png)
+![Figure 5](ProLiGenX_5.png)
 
-![Figure 6](PoLiGenX_6.png)
+![Figure 6](ProLiGenX_6.png)
 
-![Figure 7](PoLiGenX_7.png)
+![Figure 7](ProLiGenX_7.png)
 
-![Figure 8](PoLiGenX_8.png)
+![Figure 8](ProLiGenX_8.png)
 
-![Figure 9](PoLiGenX_9.png)
+![Figure 9](ProLiGenX_9.png)
 
 # 结论
 
