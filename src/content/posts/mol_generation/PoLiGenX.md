@@ -99,6 +99,7 @@ $w_s(t)$ 是根据时间步 $t$ 动态调节的信噪比权重（参考 Le 等�
 
 6. 拓展性强：潜变量框架已扩展以支持合成可行性等其他属性的控制；借助[1]中的重要性采样算法实现了这些拓展；可进一步拓展至处理动态蛋白质构象，用于柔性结合位点的配体设计；有望通过引入更高级的采样技术，挖掘稀有而具有治疗潜力的骨架结构。
 
+
 # 参考文献
 
 [ Equivariant diffusion for structure-based de novo ligand generation with latent-conditioning, 2025-05](https://doi.org/10.1186/s13321-025-01028-x)
