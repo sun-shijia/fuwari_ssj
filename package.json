@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-<<<<<<< HEAD
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/svelte": "7.0.3",
@@ -37,7 +36,6 @@
     "astro-icon": "^1.1.4",
     "hastscript": "^9.0.0",
     "katex": "^0.16.19",
-=======
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/svelte": "7.1.0",
@@ -59,7 +57,6 @@
     "astro-icon": "^1.1.5",
     "hastscript": "^9.0.1",
     "katex": "^0.16.22",
->>>>>>> 5832e726669f355ae2a1e136d8aecbd4f9ab5cbf
     "markdown-it": "^14.1.0",
     "mdast-util-to-string": "^4.0.0",
     "overlayscrollbars": "^2.11.4",

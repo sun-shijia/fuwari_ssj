@@ -8,7 +8,6 @@ import sanitizeHtml from "sanitize-html";
 const parser = new MarkdownIt();
 
 export async function GET(context: APIContext) {
-<<<<<<< HEAD
   const blog = await getSortedPosts();
 
   return rss({
@@ -30,28 +29,4 @@ export async function GET(context: APIContext) {
     }),
     customData: `<language>${siteConfig.lang}</language>`,
   });
-=======
-	const blog = await getSortedPosts();
-
-	return rss({
-		title: siteConfig.title,
-		description: siteConfig.subtitle || "No description",
-		site: context.site ?? "https://fuwari.vercel.app",
-		items: blog.map((post) => {
-			const content =
-				typeof post.body === "string" ? post.body : String(post.body || "");
-
-			return {
-				title: post.data.title,
-				pubDate: post.data.published,
-				description: post.data.description || "",
-				link: `/posts/${post.slug}/`,
-				content: sanitizeHtml(parser.render(content), {
-					allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-				}),
-			};
-		}),
-		customData: `<language>${siteConfig.lang}</language>`,
-	});
->>>>>>> 5832e726669f355ae2a1e136d8aecbd4f9ab5cbf
 }
