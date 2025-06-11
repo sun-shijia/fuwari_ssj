@@ -102,4 +102,3 @@ $w_s(t)$ 是根据时间步 $t$ 动态调节的信噪比权重（参考 Le 等�
 # 参考文献
 
 [ Equivariant diffusion for structure-based de novo ligand generation with latent-conditioning, 2025-05](https://doi.org/10.1186/s13321-025-01028-x)
-
