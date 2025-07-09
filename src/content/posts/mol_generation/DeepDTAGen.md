@@ -99,6 +99,27 @@ $$
 g_1 = \nabla_\theta L_{\text{MSE}}(\theta), \quad g_2 = \nabla_\theta L_{\text{Gen}}(\theta)
 $$
 
+### FetterGrad 更新规则（Algorithm 1）
+
+```text
+Algorithm 1: FetterGrad Update Rule
+
+Input:
+- 模型参数 θ
+- 当前任务小批量 βmini = {Tn}
+
+步骤：
+1. 对每个任务 n，计算梯度 gn = ∇θLn
+2. 初始化每个任务的 FetterGrad 梯度 gFG_n = gn
+3. 对每一对任务 Ti 和 Tj:
+   a. 如果 ESS(g_i, g_j) < 0.5:
+       i. 如果 g_j 方向主导：
+          gFG_i = gFG_i + ||g_i - g_j|| * g_j
+      ii. 如果 g_i 方向主导：
+          gFG_j = gFG_j + ||g_j - g_i|| * g_i
+4. 最终更新参数：Δθ = ∑ gFG_n
+```
+
 # 结果
 
 ## 预测任务上的结果
