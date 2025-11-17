@@ -74,4 +74,4 @@ MD 轨迹以及小分子
 
 # 参考文献
 
-[ Domain-Adapted Diffusion Model for PROTAC Linker Design Through the Lens of Density Ratio in Chemical Space, 2025-05](https://openreview.net/forum?id=jkyUbkNJyH)
+[ Shotgun Approach for PROTAC Ternary Complex Modeling and Evaluation, 2025-11](https://doi.org/10.1021/acs.jcim.5c02037)
